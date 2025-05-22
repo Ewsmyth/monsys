@@ -50,10 +50,8 @@ def create_admin_user():
 
             create_admin = User(
                 username='admin',
-                email='admin@admin.com',
                 role_id=admin_role.role_id,  # Assign the fetched admin role ID
-                password=password_hash,
-                created_by=1,
+                password=password_hash
             )
             db.session.add(create_admin)
             db.session.commit()

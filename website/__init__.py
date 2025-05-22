@@ -11,6 +11,8 @@ def create_monsys():
 
     # Load config settings
     app.config.from_object(config)
+    
+    db.init_app(app)
 
     login_manager = LoginManager(app)
     login_manager.login_view = 'auth.auth_login'
