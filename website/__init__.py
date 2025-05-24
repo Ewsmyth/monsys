@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_socketio import SocketIO
 from . import config
 from flask_login import LoginManager
 from .models import db, User
@@ -6,12 +7,14 @@ from .utils import create_admin_user, create_roles
 from sqlalchemy.exc import OperationalError
 import time
 
+socketio = SocketIO(cors_allowed_origins="*")
+
 def create_monsys():
     app = Flask(__name__)
 
     # Load config settings
     app.config.from_object(config)
-    
+
     db.init_app(app)
 
     login_manager = LoginManager(app)
@@ -52,4 +55,5 @@ def create_monsys():
                 print("Failed to connect to the database after multiple attempts.")
                 raise e  # Re-raise exception after max attempts
     
+    socketio.init_app(app)
     return app

@@ -1,5 +1,7 @@
-Flask
+Flask==3.0.1
 Flask-SQLAlchemy
 Flask-Login
 Flask-Bcrypt
+Flask-SocketIO==5.3.6
+eventlet==0.35.1
 psutil
