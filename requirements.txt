@@ -5,3 +5,4 @@ Flask-Bcrypt
 Flask-SocketIO==5.3.6
 eventlet==0.35.1
 psutil
+psycopg2-binary>=2.9.9
